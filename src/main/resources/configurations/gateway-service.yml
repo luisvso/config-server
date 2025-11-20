@@ -1,0 +1,26 @@
+server:
+  port: 8222
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: software
+          uri: lb:http://SOFTWARE
+          predicates:
+            - Path=/software/**
+        - id: ms-reservas
+          uri: lb:http://MS-RESERVAS
+          predicates:
+            - Path=/reservas/**
+        - id: ESPACOFISICO-MS
+          uri: lb:http://ESPACOFISICO-MS
+          predicates:
+            - Path=/api/espacos/**
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
