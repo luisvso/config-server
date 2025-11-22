@@ -19,6 +19,10 @@ spring:
           uri: lb:http://ESPACOFISICO-MS
           predicates:
             - Path=/api/espacos/**
+        - id: ms-professores
+          uri: lb:http://MS-PROFESSORES
+          predicates:
+            - Path=/professores/**
 
 eureka:
   client:
