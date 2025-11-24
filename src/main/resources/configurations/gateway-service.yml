@@ -23,6 +23,10 @@ spring:
           uri: lb:http://MS-PROFESSORES
           predicates:
             - Path=/professores/**
+        - id: AUTH
+          uri: lb:http://AUTH
+          predicates:
+            - Path=/auth/**
 
 eureka:
   client:
